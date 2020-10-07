@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for dentist_base project.
 
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'website',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#   Take path of our 'static' directory and join it to our BASE_DIR (automagically made by Django)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
