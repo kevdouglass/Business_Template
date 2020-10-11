@@ -28,13 +28,13 @@ def contact(request):
         )   #   Step (3) setup email settings in our Settings.py file
         
         #   POST -> (to user email)
-        contact_ss = f"Welcome {your_name}!\n\nThank you for contacting Dr. Kevin Douglass DDS. We look forward to speaking with you shortly :)"
+        contact_ss = f"Welcome {message_name}!\n\nThank you for contacting Dr. Kevin Douglass DDS. We look forward to speaking with you shortly :)"
         send_mail(
             'Thank you!', # subject
             contact_ss, #   message
             #   From email
             ['kevdouglass@gmail.com'],
-            your_email,     #   To Email
+            message_email,     #   To Email
         )
         return render(request, 'contact.html', {'message_name': message_name})
     else:   
