@@ -19,6 +19,7 @@ def contact(request):
         #   Step (1) for email: import DJANGO's send_mail library 
         #from django.core.mail import send_mail
         # Step (2)  Send an email
+        #   GET -> (to my email)
         send_mail(
             'Message from ' + message_name, # Subject
             message, # message
@@ -26,6 +27,15 @@ def contact(request):
             ['kevdouglass@gmail.com'], # TO - email
         )   #   Step (3) setup email settings in our Settings.py file
         
+        #   POST -> (to user email)
+        contact_ss = f"Welcome {your_name}!\n\nThank you for contacting Dr. Kevin Douglass DDS. We look forward to speaking with you shortly :)"
+        send_mail(
+            'Thank you!', # subject
+            contact_ss, #   message
+            #   From email
+            ['kevdouglass@gmail.com'],
+            your_email,     #   To Email
+        )
         return render(request, 'contact.html', {'message_name': message_name})
     else:   
         return render(request, 'contact.html', {})
@@ -63,6 +73,15 @@ def appointment(request):
             your_email, # FROM - email
             ['kevdouglass@gmail.com'], # TO - email
         )   #   Step (3) setup email settings in our Settings.py file
+        
+        contact_ss = f"Welcome {your_name}!\n\nThank you for contacting Dr. Kevin Douglass DDS. We look forward to speaking with you shortly :)"
+        send_mail(
+            'Thank you!', # subject
+            contact_ss, #   message
+            #   From email
+            ['kevdouglass@gmail.com'],
+            your_email,     #   To Email
+        )
         
         return render(request, 'appointment.html', {'your_name': your_name,
                     'your_email': your_email,
