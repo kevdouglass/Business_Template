@@ -1,0 +1,2 @@
+https://stackoverflow.com/questions/62620601/to-and-from-return-the-same-email-id-in-django-send-mail
+

@@ -1,4 +1,6 @@
 import os
+# from config import EMAIL, PASSWORD
+import config as CONFIG
 
 """
 Django settings for dentist_base project.
@@ -126,3 +128,45 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+#  Step (3) Email Settings    
+#   ---> Step (4) is open up a new command line (and make sure were in VENV) to put in the cmd for SMTP
+#           cmd:> python -m smtpd -n -c DebuggingServer localhost:1025
+    # #       ---> Step (5) will be to send a 'Thank You' message name that we will recieve your email and respond shortly.. (in contact.html)
+    # EMAIL_HOST = 'localhost'
+    # EMAIL_PORT = 1025 # needs to be a number, not  a string...
+    # EMAIL_HOST_USER = ''
+    # EMAIL_HOST_PASSWORD = ''
+    # EMAIL_USE_TLS = False
+
+# STEPs for PRODUCTION CODE
+
+#   (*) MUST DO FOR Emails to work..
+# (1)   myaccount.google.com/lesssecureapps
+# (2)   accounts.google.com/DisplayUnlockCaptcha
+
+#   For ADDED Security
+###################################################
+# myaccount.google.com/apppasswords
+    #   $ Setup 2-factor Oauth for Django Apps (this password will be the password used 
+    # instead of our 'EMAIL_HOST_PASSWORD = CONFIG.PASSWORD' )
+###################################################
+
+
+#   Production Email settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+#   USING CONFIG as envireonment variable...
+# email host user is the email address we want the email to route to
+EMAIL_HOST_USER = CONFIG.EMAIL
+#   password is the same user's password to GMAIL
+EMAIL_HOST_PASSWORD = CONFIG.PASSWORD
+EMAIL_USE_TLS = True
+
+###################################################
+#NOTE: Gmail doesnt allow 3rd party apps, therefore
+###################################################
+# if u use SSL you will need another port
+#   For Production Use
+#EMAIL_USE_SSL = False
