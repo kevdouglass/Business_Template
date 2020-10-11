@@ -1,6 +1,5 @@
 import os
-# from config import EMAIL, PASSWORD
-# import config as CONFIG
+
 import configuration as CONFIG
 # Added for Heroku
 import django_heroku
@@ -57,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # Added for Heroku ('Static' files)
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
 ROOT_URLCONF = 'dentist_base.urls'
@@ -137,6 +136,7 @@ STATICFILES_DIRS = [
 
 ########################################################
 #   Added for Heroku
+# STATICFILES_STORAGE 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
  
 
