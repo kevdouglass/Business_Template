@@ -1,6 +1,7 @@
 import os
 # from config import EMAIL, PASSWORD
-import config as CONFIG
+# import config as CONFIG
+import configuration as CONFIG
 # Added for Heroku
 import django_heroku
 import dj_database_url
@@ -137,9 +138,9 @@ STATICFILES_DIRS = [
 ########################################################
 #   Added for Heroku
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+ 
 
-
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 ########################################################
 
 
@@ -184,3 +185,8 @@ EMAIL_USE_TLS = True
 # if u use SSL you will need another port
 #   For Production Use
 #EMAIL_USE_SSL = False
+
+
+
+#   Heroku setup
+django_heroku.settings(locals())
