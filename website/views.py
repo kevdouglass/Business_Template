@@ -34,7 +34,7 @@ def contact(request):
             contact_ss, #   message
             #   From email
             ['kevdouglass@gmail.com'],
-            message_email,     #   To Email
+            [message_email],     #   To Email
         )
         return render(request, 'contact.html', {'message_name': message_name})
     else:   
