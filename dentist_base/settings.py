@@ -1,7 +1,11 @@
 import os
 # from config import EMAIL, PASSWORD
 import config as CONFIG
-
+# Added for Heroku
+import django_heroku
+import dj_database_url
+from decouple import config
+################## End of Heroku imports
 """
 Django settings for dentist_base project.
 
@@ -52,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Added for Heroku ('Static' files)
 ]
 
 ROOT_URLCONF = 'dentist_base.urls'
@@ -129,8 +134,17 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+########################################################
+#   Added for Heroku
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#  Step (3) Email Settings    
+
+django_heroku.settings(locals())
+########################################################
+
+
+#  Step (3) Email Settings 
+############################################################################   
 #   ---> Step (4) is open up a new command line (and make sure were in VENV) to put in the cmd for SMTP
 #           cmd:> python -m smtpd -n -c DebuggingServer localhost:1025
     # #       ---> Step (5) will be to send a 'Thank You' message name that we will recieve your email and respond shortly.. (in contact.html)
