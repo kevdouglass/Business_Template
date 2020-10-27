@@ -66,9 +66,7 @@ Last Update: Dec 05, 2018
 @import url(magnific-popup.css);
 @import url(font-awesome.min.css);
 @import url(style2.css);
-* {
 
-}
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -76,7 +74,8 @@ body {
   font-size: 14px;
   margin: 0;
   padding: 0; 
-  overflow-x: hidden; }
+  overflow-x: hidden !important; }
+
 
 h1,
 h2,
@@ -295,13 +294,13 @@ ul {
   top: 0;
   left: 0;
   background-color: #ffffff; }
-  #preloader .preload-content {
+  /* #preloader .preload-content {
     position: absolute;
     top: 50%;
     left: 50%;
     margin-top: -35px;
     margin-left: -35px;
-    z-index: 100; }
+    z-index: 100; } */
   #preloader #dento-load {
     width: 70px;
     height: 70px;
@@ -374,7 +373,10 @@ ul {
     @media only screen and (max-width: 767px) {
       .section-heading h2 {
         font-size: 24px;
-        margin-bottom: 15px; } }
+        /* margin-bottom: 15px;  */
+        margin: 0;
+        padding: 0; 
+        overflow-x: hidden !important;} }
   .section-heading .line {
     width: 70px;
     height: 4px;
@@ -815,7 +817,10 @@ ul {
 
 .dento-video-area {
   position: relative;
-  z-index: 1; }
+  z-index: 1; 
+  margin: 0;
+  padding: 0; 
+  overflow-x: hidden !important;}
   .dento-video-area img {
     width: 100%; }
   .dento-video-area .video-play-button {
