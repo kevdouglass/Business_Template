@@ -85,7 +85,7 @@ def appointment(request):
             contact_ss, #   message
             #   From email
             ['kevdouglass@gmail.com'],
-            [your_email],     #   To Email
+            [f'{your_email}'],     #   To Email
         )
         
         return render(request, 'appointment.html', {'your_name': your_name,
