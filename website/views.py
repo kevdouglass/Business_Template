@@ -80,13 +80,13 @@ def appointment(request):
         )   #   Step (3) setup email settings in our Settings.py file
         
         contact_ss = f"Welcome {your_name}!\n\nThank you for contacting Dr. Kevin Douglass DDS. We look forward to speaking with you shortly :)"
-        send_mail(
-            'Thank you!', # subject
-            contact_ss, #   message
-            #   From email
-            ['kevdouglass@gmail.com'],
-            [f'{your_email}'],     #   To Email
-        )
+        # send_mail(
+        #     'Thank you!', # subject
+        #     contact_ss, #   message
+        #     #   From email
+        #     'kevdouglass@gmail.com',
+        #     [your_email],     #   To Email
+        # )
         
         return render(request, 'appointment.html', {'your_name': your_name,
                     'your_email': your_email,
