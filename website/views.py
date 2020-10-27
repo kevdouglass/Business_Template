@@ -33,12 +33,17 @@ def contact(request):
             'Thank you!', # subject
             contact_ss, #   message
             #   From email
-            ['kevdouglass@gmail.com'],
+            'kevdouglass@gmail.com',
             [message_email],     #   To Email
         )
         return render(request, 'contact.html', {'message_name': message_name})
     else:   
         return render(request, 'contact.html', {})
+    
+    
+    
+    
+    
     
     
     
@@ -97,6 +102,9 @@ def appointment(request):
     # return render(request, 'appointment.html', {})
 
 
+
+
+
 def about(request):
     return render(request, 'about.html')
 
@@ -105,12 +113,20 @@ def pricing(request):
     return render(request, 'pricing.html', {})
 
 
+
+
+
 def service(request):
     return render(request, 'service.html', {})
 
 
+
+
 def blog(request):
     return render(request, 'blog.html', {})
+
+
+
 
 def blog_details(request):
     return render(request, 'blog-details.html', {})
